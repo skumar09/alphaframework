@@ -1,0 +1,45 @@
+{
+  "name": "alpha_framework",
+  "version": "1.0.0",
+  "description": "End 2 End Test Framework",
+  "main": "index.js",  
+  "scripts": {},
+  "files": [
+    ".github/**/*",
+    "libs/*.js",
+    "global.setup.js",
+    "playwright.config.js",
+    "install.js",
+    "selectors/**/*.js",
+    "features/**/*.js",
+    "tests/**/*.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skumar09/alphaframework.git"
+  },
+  "keywords": [
+    "Test",
+    "e2e"
+  ],
+  "author": "Santoshkumar Nateekar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skumar09/alphaframework/issues"
+  },
+  "homepage": "https://github.com/skumar09/alphaframework#readme",
+  "dependencies": {
+    "@playwright/test": "^1.38",
+    "@axe-core/playwright": "^4.7.0",
+    "axe-html-reporter": "^2.2.3",
+    "axios": "^1.3.4",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.21.3",
+    "@babel/eslint-parser": "7.21.3",
+    "eslint": "8.37.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-plugin-import": "2.27.5"
+  }
+}

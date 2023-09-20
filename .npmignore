@@ -1,0 +1,6 @@
+.git/
+.gitignore
+.npmignore
+package-lock.json
+*.log
+*.tmp
