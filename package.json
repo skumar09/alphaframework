@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "End 2 End Test Framework",
   "main": "index.js",  
-  "scripts": {},
+  "scripts": {
+    "preinstall": "node install.js"
+  },
   "files": [
     ".github/**/*",
     "libs/*.js",
