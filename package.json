@@ -1,6 +1,7 @@
 {
   "name": "alpha_framework",
   "version": "1.3.0",
+  "type": "module",
   "description": "End 2 End Test Framework",
   "main": "index.js",
   "scripts": {

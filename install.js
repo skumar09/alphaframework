@@ -1,7 +1,7 @@
-const inquirer = require('inquirer');
-const fs = require('fs');
-const path = require('path');
-const { promisify } = require('util');
+import inquirer from 'inquirer';
+import fs from 'fs';
+import path from 'path';
+import { promisify } from 'util';
 
 const copyFile = promisify(fs.copyFile);
 
