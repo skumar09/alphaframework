@@ -5,7 +5,7 @@
   "description": "End 2 End Test Framework",
   "main": "index.js",
   "scripts": {
-    "postinstall": "node setup.mjs"
+    "postinstall": "node install.mjs"
   },
   "files": [
     ".github/**/*",
