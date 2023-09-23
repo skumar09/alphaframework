@@ -7,31 +7,31 @@ const { copyFile, mkdir, readdir } = fsPromises;
 
 const filesToCopy = [
   {
-    source: path.join(import.meta.url, '.github', 'workflows', 'dailyrun.yml'),
+    source: new URL('.github/workflows/dailyrun.yml', import.meta.url),
     target: path.join(process.cwd(), '.github', 'workflows', 'dailyrun.yml'),
   },
   {
-    source: path.join(import.meta.url, '.github', 'workflows', 'selfrun.yml'),
+    source: new URL('.github/workflows/selfrun.yml', import.meta.url),
     target: path.join(process.cwd(), '.github', 'workflows', 'selfrun.yml'),
   },
   {
-    source: path.join(import.meta.url, 'selectors', 'example.block.js'),
+    source: new URL('selectors/example.block.js', import.meta.url),
     target: path.join(process.cwd(), 'selectors', 'example.block.js'),
   },
   {
-    source: path.join(import.meta.url, 'features', 'example.spec.js'),
+    source: new URL('features/example.spec.js', import.meta.url),
     target: path.join(process.cwd(), 'features', 'example.spec.js'),
   },
   {
-    source: path.join(import.meta.url, 'tests', 'example.test.js'),
+    source: new URL('tests/example.test.js', import.meta.url),
     target: path.join(process.cwd(), 'tests', 'example.test.js'),
   },
   {
-    source: path.join(import.meta.url, 'global.setup.js'),
+    source: new URL('global.setup.js', import.meta.url),
     target: path.join(process.cwd(), 'global.setup.js'),
   },
   {
-    source: path.join(import.meta.url, 'playwright.config.js'),
+    source: new URL('playwright.config.js', import.meta.url),
     target: path.join(process.cwd(), 'playwright.config.js'),
   },
 ];
