@@ -7,11 +7,11 @@ const { copyFile, mkdir, readdir } = fsPromises;
 const filesToCopy = [
   {
     source: new URL('.github/workflows/dailyrun.yml', import.meta.url),
-    target: path.join(process.cwd().replace(/node_modules[\\/].*$/, ''), '.github', 'workflows', 'dailyrun.yml'),
+    target: path.join(process.cwd(), '.github', 'workflows', 'dailyrun.yml'),
   },
   {
     source: new URL('.github/workflows/selfrun.yml', import.meta.url),
-    target: path.join(process.cwd().replace(/node_modules[\\/].*$/, ''), '.github', 'workflows', 'selfrun.yml'),
+    target: path.join(process.cwd(), '.github', 'workflows', 'selfrun.yml'),
   },
   {
     source: new URL('selectors/example.block.js', import.meta.url),
