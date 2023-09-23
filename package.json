@@ -1,6 +1,6 @@
 {
   "name": "alpha_framework",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "type": "module",
   "description": "End 2 End Test Framework",
   "main": "index.js",
