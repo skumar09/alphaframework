@@ -1,36 +1,36 @@
 import inquirer from 'inquirer';
-import { promises as fsPromises, existsSync } from 'fs';
+import { promises as fsPromises } from 'fs';
 import path from 'path';
 
 const { copyFile, mkdir, readdir } = fsPromises;
 
 const filesToCopy = [
   {
-    source: new URL('source/.github/workflows/dailyrun.yml', import.meta.url),
-    target: path.join(process.cwd(), '.github', 'workflows', 'dailyrun.yml'),
+    source: new URL('.github/workflows/dailyrun.yml', import.meta.url),
+    target: path.join(process.cwd().replace(/node_modules[\\/].*$/, ''), '.github', 'workflows', 'dailyrun.yml'),
   },
   {
-    source: new URL('source/.github/workflows/selfrun.yml', import.meta.url),
-    target: path.join(process.cwd(), '.github', 'workflows', 'selfrun.yml'),
+    source: new URL('.github/workflows/selfrun.yml', import.meta.url),
+    target: path.join(process.cwd().replace(/node_modules[\\/].*$/, ''), '.github', 'workflows', 'selfrun.yml'),
   },
   {
-    source: new URL('source/selectors/example.block.js', import.meta.url),
+    source: new URL('selectors/example.block.js', import.meta.url),
     target: path.join(process.cwd(), 'selectors', 'example.block.js'),
   },
   {
-    source: new URL('source/features/example.spec.js', import.meta.url),
+    source: new URL('features/example.spec.js', import.meta.url),
     target: path.join(process.cwd(), 'features', 'example.spec.js'),
   },
   {
-    source: new URL('source/tests/example.test.js', import.meta.url),
+    source: new URL('tests/example.test.js', import.meta.url),
     target: path.join(process.cwd(), 'tests', 'example.test.js'),
   },
   {
-    source: new URL('source/global.setup.js', import.meta.url),
+    source: new URL('global.setup.js', import.meta.url),
     target: path.join(process.cwd(), 'global.setup.js'),
   },
   {
-    source: new URL('source/playwright.config.js', import.meta.url),
+    source: new URL('playwright.config.js', import.meta.url),
     target: path.join(process.cwd(), 'playwright.config.js'),
   },
 ];
@@ -41,21 +41,6 @@ async function copyFileIfExists(source, target) {
     console.log(`Copied ${source} to ${target}`);
   } catch (error) {
     console.error(`Error copying ${source} to ${target}: ${error.message}`);
-  }
-}
-
-// Function to check if a file exists
-async function fileExists(filePath) {
-  return existsSync(filePath);
-}
-
-// Function to check if a folder exists
-async function folderExists(folderPath) {
-  try {
-    const items = await readdir(folderPath);
-    return items && items.length > 0;
-  } catch (error) {
-    return false;
   }
 }
 
@@ -121,3 +106,21 @@ inquirer
 
     // Continue with the rest of your installation logic...
   });
+
+async function fileExists(filePath) {
+  try {
+    await fsPromises.access(filePath);
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
+async function folderExists(folderPath) {
+  try {
+    const items = await readdir(folderPath);
+    return items && items.length > 0;
+  } catch (error) {
+    return false;
+  }
+}
