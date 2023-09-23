@@ -45,6 +45,26 @@ async function copyFileIfExists(source, target) {
   }
 }
 
+// Function to check if a file exists
+async function fileExists(filePath) {
+  try {
+    await fsPromises.access(filePath);
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
+// Function to check if a folder exists
+async function folderExists(folderPath) {
+  try {
+    const items = await readdir(folderPath);
+    return items && items.length > 0;
+  } catch (error) {
+    return false;
+  }
+}
+
 // Prompt the user about GitHub Actions and necessary folders
 inquirer
   .prompt([
@@ -107,21 +127,3 @@ inquirer
 
     // Continue with the rest of your installation logic...
   });
-
-async function fileExists(filePath) {
-  try {
-    await fsPromises.access(filePath);
-    return true;
-  } catch (error) {
-    return false;
-  }
-}
-
-async function folderExists(folderPath) {
-  try {
-    const items = await readdir(folderPath);
-    return items && items.length > 0;
-  } catch (error) {
-    return false;
-  }
-}
