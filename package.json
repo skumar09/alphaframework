@@ -5,10 +5,10 @@
   "description": "End 2 End Test Framework",
   "main": "index.js",
   "scripts": {
-    "preinstall": "node install.js"
+    "preinstall": "node install.mjs"
   },
   "bin": {
-    "alpha_framework": "./install.js"
+    "alpha_framework": "./install.mjs"
   },
   "files": [
     ".github/**/*",
