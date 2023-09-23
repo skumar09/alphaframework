@@ -1,37 +1,36 @@
-// import and alias fs.promises
 import inquirer from 'inquirer';
-import { promises as fsPromises } from 'fs';
+import { promises as fsPromises, existsSync } from 'fs';
 import path from 'path';
 
 const { copyFile, mkdir, readdir } = fsPromises;
 
 const filesToCopy = [
   {
-    source: new URL('.github/workflows/dailyrun.yml', import.meta.url),
+    source: path.join(__dirname, 'source', '.github', 'workflows', 'dailyrun.yml'),
     target: path.join(process.cwd(), '.github', 'workflows', 'dailyrun.yml'),
   },
   {
-    source: new URL('.github/workflows/selfrun.yml', import.meta.url),
+    source: path.join(__dirname, 'source', '.github', 'workflows', 'selfrun.yml'),
     target: path.join(process.cwd(), '.github', 'workflows', 'selfrun.yml'),
   },
   {
-    source: new URL('selectors/example.block.js', import.meta.url),
+    source: path.join(__dirname, 'source', 'selectors', 'example.block.js'),
     target: path.join(process.cwd(), 'selectors', 'example.block.js'),
   },
   {
-    source: new URL('features/example.spec.js', import.meta.url),
+    source: path.join(__dirname, 'source', 'features', 'example.spec.js'),
     target: path.join(process.cwd(), 'features', 'example.spec.js'),
   },
   {
-    source: new URL('tests/example.test.js', import.meta.url),
+    source: path.join(__dirname, 'source', 'tests', 'example.test.js'),
     target: path.join(process.cwd(), 'tests', 'example.test.js'),
   },
   {
-    source: new URL('global.setup.js', import.meta.url),
+    source: path.join(__dirname, 'source', 'global.setup.js'),
     target: path.join(process.cwd(), 'global.setup.js'),
   },
   {
-    source: new URL('playwright.config.js', import.meta.url),
+    source: path.join(__dirname, 'source', 'playwright.config.js'),
     target: path.join(process.cwd(), 'playwright.config.js'),
   },
 ];
@@ -47,12 +46,7 @@ async function copyFileIfExists(source, target) {
 
 // Function to check if a file exists
 async function fileExists(filePath) {
-  try {
-    await fsPromises.access(filePath);
-    return true;
-  } catch (error) {
-    return false;
-  }
+  return existsSync(filePath);
 }
 
 // Function to check if a folder exists
