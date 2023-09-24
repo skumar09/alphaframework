@@ -4,9 +4,7 @@
   "type": "module",
   "description": "End 2 End Test Framework",
   "main": "index.js",
-  "scripts": {
-    "postinstall": "node install.mjs"
-  },
+  "scripts": {},
   "files": [
     ".github/**/*",
     "libs/*.js",
