@@ -124,3 +124,4 @@ async function folderExists(folderPath) {
     return false;
   }
 }
+
