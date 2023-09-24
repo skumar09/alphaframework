@@ -12,7 +12,7 @@
     "libs/*.js",
     "global.setup.js",
     "playwright.config.js",
-    "install.js",
+    "install.mjs",
     "selectors/**/*.js",
     "features/**/*.js",
     "tests/**/*.js"
