@@ -1,6 +1,6 @@
 {
   "name": "alpha_framework",
-  "version": "1.22.0",
+  "version": "2.0.0",
   "type": "module",
   "description": "End 2 End Test Framework",
   "main": "index.js",
@@ -11,7 +11,7 @@
     ".github/**/*",
     "libs/*.js",
     "global.setup.js",
-    "playwright.config.js",   
+    "playwright.config.js",
     "selectors/**/*.js",
     "features/**/*.js",
     "tests/**/*.js"
