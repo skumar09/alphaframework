@@ -11,8 +11,7 @@
     ".github/**/*",
     "libs/*.js",
     "global.setup.js",
-    "playwright.config.js",
-    "install.mjs",
+    "playwright.config.js",   
     "selectors/**/*.js",
     "features/**/*.js",
     "tests/**/*.js"
